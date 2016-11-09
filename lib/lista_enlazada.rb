@@ -3,7 +3,7 @@ module Dieta
 
   Nodo = Struct.new( :valor, :next)
 
-  class Lista_enlazda
+  class Lista_enlazada
       
     
         

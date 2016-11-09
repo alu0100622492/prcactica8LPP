@@ -3,10 +3,10 @@ require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task :default => :lista
 
 desc "Ejecutar las espectativas de la clase Dieta"
-task :spec do
+task :dieta do
   sh "rspec -I. spec/dieta_spec.rb"
 end
 
