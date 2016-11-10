@@ -31,7 +31,10 @@ module Dieta
 			@aux=Nodo.new(nodo,nil)
 			@head = @aux
 		else
-			puts 'Hay que hacer metodo insertar'
+			puts 'Insertando nodo en la lista'
+			@aux = Nodo.new(nodo,nil)
+			@aux.next = @head
+			@head = @aux	
 		end
 
 	end         
