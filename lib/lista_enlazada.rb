@@ -7,25 +7,29 @@ module Dieta
       
     
         
- 	   attr_accessor :head, :ultcola,:valor, 
+ 	   attr_accessor :head, 
     
     
-    	def initialize(n=nil, m=nil)
+    	def initialize(n=nil)
    		@head=n
-		@ultcola=m
     	end
-    
-    
-    	def each()
-        	if(@head !=nil)
-           		@temp=@head
-             		while (@temp != nil) do
-             		yield @temp.valor
-             		@temp=@temp.siguiente 
-            		end
-        	end
-    	end
-  
-           
+
+	def pop()
+		if @head != nil
+			#@aux = @head
+			puts 'Hay elementos en la lista'
+		else
+		
+			puts 'No hay nada en la lista enlazada'
+			return nil
+		end
+	end    
+    	
+
+	def push(nodo)
+		if @head ==nil
+
+
+	end         
   end
 end

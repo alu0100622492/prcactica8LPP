@@ -10,12 +10,28 @@ describe Dieta::Lista_enlazada do
 	@nodo1= Dieta::Nodo.new(@menu_uno,nil)
 	end
 
-	describe "Pruebas lista enlazada" do
-		context "Pruebas atributos lista enlazada" do
+	describe "Biblio" do
+		context "Node" do
+			it"Existe un struct nodo"do
+			expect(@nodo1.class) == Dieta::Nodo
+			end
+			it"Existe un nodo de la lista con su valor y su siguiente"do
+			expect(@nodo1).to have_attributes(:valor => @menu_uno, :next => nil)
+			end
+		end	
+		context "Lista" do
 			it"Existe una clase Lista"do
-			expect(@l1.class) ==  Dieta::Lista_enlazada
+                        expect(@l1.class) ==  Dieta::Lista_enlazada
+                        end
+			it "Se extrae el primer elemento de la lista" do
+			expect(@l1.pop()) == nil
+			end
+			it "Se puede insertar un elemento" do
+			@l1.push(@nodo1)
+			expect(@l1.head) == (@nodo1)
 			end
 		end
 	end
+		
 end
 
