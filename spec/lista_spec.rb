@@ -6,6 +6,8 @@ describe Dieta::Lista_enlazada do
 	before :all do
 	@menu_uno = Dieta::Dieta.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa de tomate y queso parmesano.", "Escalope de ternera"],
                           "1 1/2 cucharón", 200, 785.9, 19, 34, 47)	
+	@menu_dos = Dieta::Dieta.new("DESAYUNO", "15%",["Leche desnatada","Cacao instantaneo","Cereales de desayuno en hojuelas","Almendras laminadas"]),"1 vaso ",200,288.0,17,21,62)
+	
 	@l1 = Dieta::Lista_enlazada.new
 	@nodo1= Dieta::Nodo.new(@menu_uno,nil)
 	end
@@ -30,6 +32,11 @@ describe Dieta::Lista_enlazada do
 			@l1.push(@nodo1)
 			expect(@l1.head) == (@nodo1)
 			end
+			it "Se pueden insertar varios elementos" do
+			
+			end
+
+
 		end
 	end
 		

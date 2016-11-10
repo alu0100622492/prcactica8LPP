@@ -27,8 +27,12 @@ module Dieta
     	
 
 	def push(nodo)
-		if @head ==nil
-
+		if @head == nil
+			@aux=Nodo.new(nodo,nil)
+			@head = @aux
+		else
+			puts 'Hay que hacer metodo insertar'
+		end
 
 	end         
   end
