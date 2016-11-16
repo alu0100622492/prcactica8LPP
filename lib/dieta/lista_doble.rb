@@ -10,6 +10,8 @@ Nodo_doble = Struct.new(:valor,:siguiente,:anterior )
 		@head = nil
 		@tail = nil	
 		end
-
+		def push(nod)
+		
+		end
 	end
 end

@@ -49,7 +49,10 @@ end
 
 describe Dieta::Lista_doble do
 	before :all do
-	@nodo = Dieta::Nodo_doble.new(nil,nil,nil)
+	 @menu_uno = Dieta::Dieta.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa de tomate y queso parmesano.", "Escalope de ternera"],
+                          "1 1/2 cucharón", 200, 785.9, 19, 34, 47)
+
+	@nodo = Dieta::Nodo_doble.new(@menu_uno,nil,nil)
 	@lista_doble = Dieta::Lista_doble.new
 	end
 	describe "Lista_doble" do
@@ -63,11 +66,20 @@ describe Dieta::Lista_doble do
                 end
 
 		it "Existe un struct nodo con anterior y siguiente" do
-		expect(@nodo).to have_attributes(:valor => nil, :siguiente =>nil, :anterior =>nil)
+		expect(@nodo).to have_attributes(:valor => @menu_uno, :siguiente =>nil, :anterior =>nil)
 		end
 		it "Existe un Nodo de la lista con sus datos, su siguiente y su anterior" do
 	         expect(@lista_doble.head != nil && @lista_doble.siguiente == nil && @lista_doble.anterior == nil) 
-	    end
+	    	end
+		it "Insertar nodos en la lista" do
+           	 @lista_doble.push(@nodo)
+            	expect(@lista_doble.head) == (@nodo)
+        	end
+		it "Insertar varios nodos en la lista"do
+		@lista_doble.push(@nodo)
+		@lista_doble.push(@nodo1)
+		expect(@lista_doble.head) == (@nodo1)
+		end
 	    end
 	end
 end
