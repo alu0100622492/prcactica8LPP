@@ -62,9 +62,12 @@ describe Dieta::Lista_doble do
                 expect(@nodo.class) == Dieta::Nodo_doble
                 end
 
-	#	it "Existe un struct nodo con anterior y siguiente"
-	#	expect(@nodo).to have_attributes(:valor => nil, :siguiente =>nil, :anterior =>nil)
-	#	end
+		it "Existe un struct nodo con anterior y siguiente" do
+		expect(@nodo).to have_attributes(:valor => nil, :siguiente =>nil, :anterior =>nil)
+		end
+		it "Existe un Nodo de la lista con sus datos, su siguiente y su anterior" do
+	         expect(@lista_doble.head != nil && @lista_doble.siguiente == nil && @lista_doble.anterior == nil) 
+	    end
 	    end
 	end
 end
