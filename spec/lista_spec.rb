@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'lista_enlazada'
 require 'dieta'
 
 describe Dieta::Lista_enlazada do
@@ -48,3 +47,24 @@ describe Dieta::Lista_enlazada do
 		
 end
 
+describe Dieta::Lista_doble do
+	before :all do
+	@nodo = Dieta::Nodo_doble.new(nil,nil,nil)
+	@lista_doble = Dieta::Lista_doble.new
+	end
+	describe "Lista_doble" do
+	    context "NODO Y LISTA DOBLE" do	
+		it "Existe la clase lista doble" do
+		expect(@lista_doble.class) == Dieta::Lista_doble
+		end
+		
+		it "Existe el nodo para la lista doble" do
+                expect(@nodo.class) == Dieta::Nodo_doble
+                end
+
+	#	it "Existe un struct nodo con anterior y siguiente"
+	#	expect(@nodo).to have_attributes(:valor => nil, :siguiente =>nil, :anterior =>nil)
+	#	end
+	    end
+	end
+end
