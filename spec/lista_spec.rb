@@ -119,8 +119,46 @@ end
 
 describe Dieta::Menu_edades do
         before :all do
+
+
+                @menu_uno = Dieta::Dieta.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa de tomate y queso parmesano.", "Escalope de ternera"],
+                          "1 1/2 cucharón", 200, 785.9, 19, 34, 47)
+                @nodo = Dieta::Nodo_doble.new(@menu_uno,nil,nil)
+
+
+                @menu_dos = Dieta::Dieta.new("DESAYUNO", "15%",["Leche desnatada","Cacao instantaneo","Cereales de desayuno en hojuelas","Almendras laminadas"],"1 vaso ",200,288.0,17,21,62)
+                @nodo1 = Dieta::Nodo_doble.new(@menu_dos,nil,nil)
+
+                @lista_doble = Dieta::Lista_doble.new
+                @lista_doble.push_principio(@nodo)
+                @lista_doble.push_principio(@nodo1)
+
+
+        @menu_edades = Dieta::Menu_edades.new("DESAYUNO", "15%",["Leche desnatada","Cacao instantaneo","Cereales de desayuno en hojuelas","Almendras laminadas"],"1 vaso ",200,288.0,17,21,62, "8-10 años")
+
+        end
+
+        describe "MENU DE EDADES" do
+                context "Pruebas del menu por edades" do
+                        it"Existe una clase Menu edades que hereda de Dieta" do
+                         expect(@menu_edades.class.ancestors) == Dieta::Dieta
+                        end
+                        #it "Existe una clase para las edades de 4 a 8 años y que hereda de Menu Edades" do
+                        #expect(@menu_cuatro_a_ocho.class.ancestors) == Dieta::Menu_edades
+                        #end
+                        #it "La clase Menu edades tiene una lista de edades" do
+
+                        #end
+
+                end
+
+        end
+
+end
+
+describe Dieta::Menu_alimentos do
+        before :all do
         
-	@menu_cuatro_a_ocho = Dieta::Menu_cuatro_ocho.new()
         
 		@menu_uno = Dieta::Dieta.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa de tomate y queso parmesano.", "Escalope de ternera"],
                           "1 1/2 cucharón", 200, 785.9, 19, 34, 47)
@@ -133,21 +171,18 @@ describe Dieta::Menu_edades do
 		@lista_doble = Dieta::Lista_doble.new
 		@lista_doble.push_principio(@nodo)
 		@lista_doble.push_principio(@nodo1)
-		@menu_edades = Dieta::Menu_edades.new
+	
+
+	@menu_alimentos = Dieta::Menu_alimentos.new("DESAYUNO", "15%",["Leche desnatada","Cacao instantaneo","Cereales de desayuno en hojuelas","Almendras laminadas"],"1 vaso ",200,288.0,17,21,62, "‘leche, huevos, pescado, carne y frutos secos")
 
 	end
 
         describe "MENU DE EDADES" do
                 context "Pruebas del menu por edades" do
                         it"Existe una clase Menu edades que hereda de Dieta" do
-                         expect(@menu_edades.class.ancestors) == Dieta::Dieta
+                         expect(@menu_alimentos.class.ancestors) == Dieta::Dieta
 			end
-			it "Existe una clase para las edades de 4 a 8 años y que hereda de Menu Edades" do
-                        expect(@menu_cuatro_a_ocho.class.ancestors) == Dieta::Menu_edades
-			end
-			#it "La clase Menu edades tiene una lista de edades" do
 			
-	      		#end
 			
                 end
                 
