@@ -41,7 +41,7 @@ describe Dieta::Lista_enlazada do
 			it "Debe existir una Lista con su cabeza" do
 			expect(@l2).to have_attributes(:head => nil)
 			end
-
+			
 		end
 	end
 		
@@ -74,6 +74,10 @@ describe Dieta::Lista_doble do
 		it "Existe un Nodo de la lista con sus datos, su siguiente y su anterior" do
 	         expect(@lista_doble.head != nil && @lista_doble.siguiente == nil && @lista_doble.anterior == nil) 
 	    	end
+		it "Existe una lista con sus datos, cabeza y cola" do
+                 expect(@lista_doble.head != nil && @lista_doble.tail)
+                end
+
 		it "Debemos tener un metodo push_principio" do
 		expect(@lista_doble).to respond_to :push_principio
 		end
@@ -89,10 +93,26 @@ describe Dieta::Lista_doble do
 		it "Debe tener un metodo pop principio" do
 		expect(@lista_doble).to respond_to :pop_principio
 		end
-		it "Extraemos elemento de lista" do
+		it "Extraemos elemento de lista por el principio" do
 		@lista_doble.pop_principio()
 		expect(@lista_doble.head) == (@nodo1)
 		end
+		it "Debe tener un metodo push por el final" do
+                expect(@lista_doble).to respond_to :push_final
+                end
+                it "Introducimos un elemento en la lista por el final" do
+                @lista_doble.push_final(@nodo)
+		@lista_doble.push_final(@nodo1)
+                expect(@lista_doble.tail) == (@nodo1)
+                end
+		it "Debe tener un metodo pop final" do
+                expect(@lista_doble).to respond_to :pop_final
+                end
+                it "Extraemos elemento de lista por el final" do
+                @lista_doble.pop_final()
+                expect(@lista_doble.head) == (@nodo)
+                end
+
 	    end
 	end
 end
