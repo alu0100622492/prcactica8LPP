@@ -13,12 +13,13 @@ Nodo_doble = Struct.new(:valor,:siguiente,:anterior )
 		
 		def push_principio(nod)
 		if @head != nil
-			@aux = Nodo_doble.new(nod,nil,nil)
+			@aux = Nodo_doble.new(nod,@head,nil)
 			@head.anterior = @aux	
-			@aux.siguiente = @head
+	
 			else
 			@aux = Nodo_doble.new(nod,nil,nil)
 			@head = @aux
+			@tail = @head
 			end
 		end
 		
@@ -32,6 +33,43 @@ Nodo_doble = Struct.new(:valor,:siguiente,:anterior )
 			puts 'Lista doble vacia'
 			return nil
 			end
+		end
+
+		def push_final(nod)
+			if @head == nil
+			@aux = Nodo_doble.new(nod,nil,nil)
+			@head = @aux
+			@tail = @head
+			else
+			@tail.siguiente = Nodo_doble.new(nod,nil,@tail)
+			@tail = @tail.siguiente
+			end
+		end
+		
+		def pop_final()
+			if @head == nil
+			puts 'Lista doble vacia'
+			else
+				if @head == @tail
+				@head = nil
+				@tail = nil
+				else
+				@tail = @tail.anterior
+				@tail.siguiente = nil
+				end
+			end
 		end	
+
+
+		#def each()
+        	#	if(@head !=nil)
+           	#	@temp=@head
+             	#		while (@temp != nil) do
+             	#		yield @temp.valor
+             	#		@temp=@temp.siguiente 
+             	#		end
+        	#	end
+    		#end
+		
 	end
 end
