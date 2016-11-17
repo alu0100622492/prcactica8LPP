@@ -147,8 +147,14 @@ describe Dieta::Menu_edades do
                         #expect(@menu_cuatro_a_ocho.class.ancestors) == Dieta::Menu_edades
                         #end
                         #it "La clase Menu edades tiene una lista de edades" do
-
                         #end
+			 it "Existe un metodo to_s en la clase menu_edad" do
+                        expect(@menu_edades).to respond_to :to_s
+
+                        end
+                        it "Mostramos metodo to_s de la clase Menu edad" do
+                        expect(@menu_edades.to_s).to eq("DESAYUNO (15%)\n- Leche desnatada, 1 vaso , 200 g\nV.C.T. | %\t288.0 kcal | 17% - 21% - 62%\n La Edad para estos productos es: 8-10 años")
+                        end
 
                 end
 
@@ -177,13 +183,18 @@ describe Dieta::Menu_alimentos do
 
 	end
 
-        describe "MENU DE EDADES" do
-                context "Pruebas del menu por edades" do
+        describe "MENU DE ALIMENTOS" do
+                context "Pruebas del menu para alimentos" do
                         it"Existe una clase Menu edades que hereda de Dieta" do
                          expect(@menu_alimentos.class.ancestors) == Dieta::Dieta
 			end
-			
-			
+			it "Existe un metodo to_s en la clase menu_alimentos" do
+			expect(@menu_alimentos).to respond_to :to_s
+
+			end
+			it "Mostramos metodo to_s de la clase Menu alimento" do
+			expect(@menu_alimentos.to_s).to eq("DESAYUNO (15%)\n- Leche desnatada, 1 vaso , 200 g\nV.C.T. | %\t288.0 kcal | 17% - 21% - 62%\n La categorias de alimentos es: ‘leche, huevos, pescado, carne y frutos secos")
+			end	
                 end
                 
         end
