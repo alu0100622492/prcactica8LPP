@@ -11,8 +11,8 @@ Nodo_doble = Struct.new(:valor,:siguiente,:anterior )
 		@tail = nil	
 		end
 		
-		def push(nod)
-		if head != nil
+		def push_principio(nod)
+		if @head != nil
 			@aux = Nodo_doble.new(nod,nil,nil)
 			@head.anterior = @aux	
 			@aux.siguiente = @head
@@ -22,8 +22,16 @@ Nodo_doble = Struct.new(:valor,:siguiente,:anterior )
 			end
 		end
 		
-		def pop()
-		
-		end
+		def pop_principio()
+			if @head != nil
+			@aux = @head 
+			@head = @head.siguiente
+			@aux.siguiente = nil
+			
+			else
+			puts 'Lista doble vacia'
+			return nil
+			end
+		end	
 	end
 end

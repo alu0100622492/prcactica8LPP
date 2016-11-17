@@ -74,17 +74,24 @@ describe Dieta::Lista_doble do
 		it "Existe un Nodo de la lista con sus datos, su siguiente y su anterior" do
 	         expect(@lista_doble.head != nil && @lista_doble.siguiente == nil && @lista_doble.anterior == nil) 
 	    	end
+		it "Debemos tener un metodo push_principio" do
+		expect(@lista_doble).to respond_to :push_principio
+		end
 		it "Insertar nodos en la lista" do
-           	 @lista_doble.push(@nodo)
+           	 @lista_doble.push_principio(@nodo)
             	expect(@lista_doble.head) == (@nodo)
         	end
-		it "Insertar varios nodos en la lista"do
-		@lista_doble.push(@nodo)
-		@lista_doble.push(@nodo1)
+		it "Insertar varios nodos en la lista por el principio"do
+		@lista_doble.push_principio(@nodo)
+		@lista_doble.push_principio(@nodo1)
 		expect(@lista_doble.head) == (@nodo)
 		end
-		it "Debe tener un metodo pop" do
-		expect(@lista_doble).to respond_to :pop
+		it "Debe tener un metodo pop principio" do
+		expect(@lista_doble).to respond_to :pop_principio
+		end
+		it "Extraemos elemento de lista" do
+		@lista_doble.pop_principio()
+		expect(@lista_doble.head) == (@nodo1)
 		end
 	    end
 	end
