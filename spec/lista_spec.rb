@@ -155,7 +155,9 @@ describe Dieta::Menu_edades do
                         it "Mostramos metodo to_s de la clase Menu edad" do
                         expect(@menu_edades.to_s).to eq("DESAYUNO (15%)\n- Leche desnatada, 1 vaso , 200 g\nV.C.T. | %\t288.0 kcal | 17% - 21% - 62%\n La Edad para estos productos es: 8-10 años")
                         end
-
+			it "La superclase de menu edades es Dieta" do
+			expect(@menu_edades.class.superclass).to eq(Dieta::Dieta)
+			end
                 end
 
         end
@@ -194,7 +196,11 @@ describe Dieta::Menu_alimentos do
 			end
 			it "Mostramos metodo to_s de la clase Menu alimento" do
 			expect(@menu_alimentos.to_s).to eq("DESAYUNO (15%)\n- Leche desnatada, 1 vaso , 200 g\nV.C.T. | %\t288.0 kcal | 17% - 21% - 62%\n La categorias de alimentos es: ‘leche, huevos, pescado, carne y frutos secos")
-			end	
+			end
+			it "La superclase superclase de menu alimentos es Object" do
+                        expect(@menu_alimentos.class.superclass.superclass).to eq(Object)
+                        end
+	
                 end
                 
         end
