@@ -49,11 +49,14 @@ end
 
 describe Dieta::Lista_doble do
 	before :all do
-	 @menu_uno = Dieta::Dieta.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa de tomate y queso parmesano.", "Escalope de ternera"],
+	 	@menu_uno = Dieta::Dieta.new("ALMUERZO", "30 - 35%", ["Macarrones con salsa de tomate y queso parmesano.", "Escalope de ternera"],
                           "1 1/2 cucharón", 200, 785.9, 19, 34, 47)
+		@nodo = Dieta::Nodo_doble.new(@menu_uno,nil,nil)
+		@lista_doble = Dieta::Lista_doble.new
 
-	@nodo = Dieta::Nodo_doble.new(@menu_uno,nil,nil)
-	@lista_doble = Dieta::Lista_doble.new
+	 	@menu_dos = Dieta::Dieta.new("DESAYUNO", "15%",["Leche desnatada","Cacao instantaneo","Cereales de desayuno en hojuelas","Almendras laminadas"],"1 vaso ",200,288.0,17,21,62)
+		@nodo1 = Dieta::Nodo_doble.new(@menu_dos,nil,nil
+)
 	end
 	describe "Lista_doble" do
 	    context "NODO Y LISTA DOBLE" do	
@@ -78,7 +81,10 @@ describe Dieta::Lista_doble do
 		it "Insertar varios nodos en la lista"do
 		@lista_doble.push(@nodo)
 		@lista_doble.push(@nodo1)
-		expect(@lista_doble.head) == (@nodo1)
+		expect(@lista_doble.head) == (@nodo)
+		end
+		it "Debe tener un metodo pop" do
+		expect(@lista_doble).to respond_to :pop
 		end
 	    end
 	end
